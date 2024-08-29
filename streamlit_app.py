@@ -112,6 +112,7 @@ for asset in unique_assets:
 
 df['Precio Actual'] = df['Activo Subyacente'].map(prices)
 df['5% Superior'] = df['Precio Actual'] * highRange
+df.loc[df['Precio Actual'] > 10000, 'Strike Price'] *= 10
 
 # Agrupar y crear pares
 grouped = df[(df['Option Type'] == 'C')].groupby(['Activo Subyacente', 'Option Type', 'Expiration'])
