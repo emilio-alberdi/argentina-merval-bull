@@ -14,7 +14,7 @@ st.title("Bull Spread Analyzer")
 
 # Parámetros de entrada configurables por el usuario
 lotes = st.number_input("Número de Lotes", value=10, min_value=1)
-percentageDifference = st.number_input("Diferencia de Porcentaje Máxima (%)", value=30, min_value=0.0, max_value=100.0)
+percentageDifference = st.number_input("Diferencia de Porcentaje Máxima (%)", value=30, min_value=0, max_value=100)
 highRange = st.number_input("Multiplicador de Rango Superior (%)", value=1.05, min_value=1.0, max_value=2.0, step=0.01)
 
 # Funciones auxiliares
