@@ -101,9 +101,14 @@ df['Expiration'] = df['Especie'].apply(extract_expiration)
 unique_assets = df['Activo Subyacente'].unique()
 prices = {}
 for asset in unique_assets:
-    ticker = yf.Ticker(asset + '.BA')
-    current_price = ticker.history(period='1d')['Close'].iloc[-1]
-    prices[asset] = current_price
+    try:
+      print(asset)
+      ticker = yf.Ticker(asset + '.BA')  # .BA es el sufijo para tickers de Argentina en Yahoo Finance
+      
+      current_price = ticker.history(period='1d')['Close'].iloc[-1]
+      prices[asset] = current_price
+    except Exception as e:
+      print(f"Error al obtener el precio de {asset}: {e}")
 
 df['Precio Actual'] = df['Activo Subyacente'].map(prices)
 df['5% Superior'] = df['Precio Actual'] * highRange
