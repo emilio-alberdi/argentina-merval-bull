@@ -12,6 +12,8 @@ st.set_page_config(page_title="Bull Spread Analyzer", layout="wide")
 # Título de la aplicación
 st.title("Bull Spread Analyzer")
 
+st.write("En base a: https://bolsar.info/opciones.php pueden existir un delay. El precio de la accion es por yFinance ")
+
 # Parámetros de entrada configurables por el usuario
 lotes = st.number_input("Número de Lotes", value=10, min_value=1)
 percentageDifference = st.number_input("Diferencia de Porcentaje Máxima (%)", value=30, min_value=0, max_value=100)
